@@ -1,0 +1,21 @@
+<h1>Tu veux connaître la valeur d'une crypto ? Rentre son nom !</h1>
+<div class="container mt-5"> <!-- HTML -->
+	<div class="form-group">
+
+    <form action="/crypto-index" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Nom de la crypto :</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" name="name">
+      </div>
+
+  		  <button type="submit" class="btn btn-primary">Je veux son prix</button>
+  	</form>
+
+	</div>
+
+  <% if @crypto %>
+  Nom : <%= @crypto.name %><br />
+  Prix : <%= @crypto.price %>
+  <% end %>
+</div>
