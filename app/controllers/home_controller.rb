@@ -1,12 +1,15 @@
 class HomeController < ApplicationController
   def index
     puts params
+    puts 'IINNNDEEEEEEEEEEEEEEEEEEEEEEEXXXXXXXXXXXXXXXXX'
     if params[:crypto]
-      @crypto = Crypto.find(params[:crypto][:crypto])
+      @crypto = Crypto.find(params[:crypto])
+    elsif params[:recherche]
+      @films = SearchMovie.new(params[:recherche]).perform
     end
   end
 
-  def find
+  def search_crypto
     @crypto = Crypto.find_by(name: "#{params[:name]}")
     params = Hash.new
     if @crypto
@@ -14,6 +17,7 @@ class HomeController < ApplicationController
     else
       flash[:notice] = "Cette cryptomonnaie n'existe pas"
     end
-    redirect_to controller: "home", action: "index", crypto: params
+    redirect_to controller: "home", action: "index", crypto: params[:crypto]
   end
+
 end

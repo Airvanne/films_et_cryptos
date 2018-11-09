@@ -13,9 +13,53 @@
   	</form>
 
 	</div>
-
+<br />
   <% if @crypto %>
   Nom : <%= @crypto.name %><br />
-  Prix : <%= @crypto.price %>
+  Prix : <%= @crypto.price %>$
   <% end %>
 </div>
+
+<h1>Retrouve le film que tu cherches</h1>
+
+<div class="container mt-5"> <!-- HTML -->
+	<div class="form-group">
+
+    <form action="/film-index" method="POST">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Nom du film :</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" name="recherche">
+      </div>
+
+  		  <button type="submit" class="btn btn-primary">Rechercher</button>
+  	</form>
+
+	</div>
+</div>
+
+	<div>
+	  <% if @films %>
+		  <% if @films.empty? %>
+			  <p>Pas de film trouvé</p>
+		  <% end %>
+	    <% @films.each do |film| %>
+	    <div class="col-xs-6 col-sm-4 col-lg-3">
+	      <div class="card">
+	        <img class="card-img-top" src="<%= film['poster'] %>" alt="Card image cap">
+	        <div class="card-body">
+	          <h4 class="card-title">
+	            <%= film['title'] %>
+	          </h4>
+	          <p class="card-text">Réalisé par :
+	            <%= film['director'] %>
+	          </p>
+	          <p class="card-text">Date de sortie :
+	            <%= film['release'] %>
+	          </p>
+	        </div>
+	      </div>
+	    </div>
+	    <% end %>
+	  <% end %>
+	</div>

@@ -1,24 +1,13 @@
-# README
+# Films et Crypto
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```git clone https://github.com/Airvanne/films_et_cryptos.git```
 
-Things you may want to cover:
+```rails db:create```
 
-* Ruby version
+```rails db:migrate```
 
-* System dependencies
+Allez dans la console grâce à `rails c` et lancez `StartScrap.new.perform`
 
-* Configuration
+Sortez de la console et lancez le serveur avec `rails s`
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Dans votre navigateur allez sur localhost:3000 et recherchez les prix des cryptomonnaies et/ou de recherchez les infos sur vos films préférés.
