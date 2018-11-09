@@ -1,3 +1,5 @@
+Dotenv.load
+
 class SearchMovie
   def initialize(query)
     @query = query

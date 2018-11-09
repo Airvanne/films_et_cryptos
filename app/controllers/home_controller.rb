@@ -1,7 +1,5 @@
 class HomeController < ApplicationController
   def index
-    puts params
-    puts 'IINNNDEEEEEEEEEEEEEEEEEEEEEEEXXXXXXXXXXXXXXXXX'
     if params[:crypto]
       @crypto = Crypto.find(params[:crypto])
     elsif params[:recherche]
